@@ -8,5 +8,7 @@ public class TransController {
     /**
      *
      */
-    public String
+    public String submit(){
+        return "";
+    }
 }
