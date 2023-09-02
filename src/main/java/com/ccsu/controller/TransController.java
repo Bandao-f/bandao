@@ -9,6 +9,6 @@ public class TransController {
      *
      */
     public String submit(){
-        return "";
+        return "为啥不能PUSH";
     }
 }
