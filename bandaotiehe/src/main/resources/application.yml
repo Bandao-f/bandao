@@ -1,10 +1,19 @@
 server:
-  port: 6021
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  port: 8080
+
+spring:
+  application:
+    name: register-center
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydatabase
+    username: your-username
+    password: your-password
+
+  logging:
+    level:
+      root: info
+      com.szyciov: debug
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml

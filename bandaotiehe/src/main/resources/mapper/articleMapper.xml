@@ -1,0 +1,22 @@
+<!-- articleMapper.xml -->
+<mapper namespace="com.ccsu.dal.ArticleMapper">
+    <select id="getAllArticles" resultType="com.ccsu.common.Article">
+        SELECT * FROM article
+    </select>
+
+    <select id="getArticleById" parameterType="java.lang.Long" resultType="com.ccsu.common.Article">
+        SELECT * FROM article WHERE id = #{id}
+    </select>
+
+    <insert id="createArticle" parameterType="com.ccsu.common.Article">
+        INSERT INTO article(title, content) VALUES(#{title}, #{content})
+    </insert>
+
+    <update id="updateArticle" parameterType="com.ccsu.common.Article">
+        UPDATE article SET title = #{title}, content = #{content} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteArticle" parameterType="java.lang.Long">
+        DELETE FROM article WHERE id = #{id}
+    </delete>
+</mapper>

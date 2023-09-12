@@ -1,14 +1,20 @@
 package com.ccsu.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@Controller("transController")
+@Controller
+@RequestMapping("transController")
 public class TransController {
 
     /**
      *
      */
-    public String submit(){
-        return "为啥不能PUSH";
+    @GetMapping("/reportAlipay")
+    public @ResponseBody String handleRequest(@RequestParam String param) {
+        System.out.println(param);
+
+        // 处理请求参数
+        return "Received parameter: "+param;
     }
 }
