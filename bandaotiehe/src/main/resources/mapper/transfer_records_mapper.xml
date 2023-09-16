@@ -1,0 +1,39 @@
+<mapper namespace="com.ccsu.dal.TransferRecordMapper">
+
+    <!-- 定义返回结果的映射 -->
+    <resultMap id="transferRecordMap" type="com.ccsu.common.TransferRecord">
+        <!-- 根据数据库字段和TransferRecord的属性做映射 -->
+        <id property="id" column="record_id" />
+        <result property="transferDate" column="transfer_date" />
+        <result property="amount" column="amount" />
+        <!-- 其他属性映射 -->
+        ...
+    </resultMap>
+
+    <!-- 插入转账记录 -->
+    <insert id="insertTransferRecord" parameterType="com.ccsu.common.TransferRecord">
+        INSERT INTO transfer_records (alipay_account, transfer_status, transfer_time, amount)
+        VALUES (#{alipayAccount}, #{transferStatus}, #{transferTime}, #{amount})
+    </insert>
+
+    <!-- 根据 ID 查询转账记录 -->
+    <select id="getTransferRecordById" resultType="com.ccsu.common.TransferRecord">
+        SELECT * FROM transfer_records WHERE id = #{id}
+    </select>
+
+    <!-- 根据 ID 查询转账记录 -->
+    <select id="getTransferRecordsByDate" resultMap="transferRecordMap">
+        SELECT * FROM transfer_records WHERE transfer_date = #{date}
+    </select>
+    <!-- 更新转账记录 -->
+    <update id="updateTransferRecord" parameterType="com.ccsu.common.TransferRecord">
+        UPDATE transfer_records SET alipay_account = #{alipayAccount}, transfer_status = #{transferStatus},
+                                    transfer_time = #{transferTime}, amount = #{amount} WHERE id = #{id}
+    </update>
+
+    <!-- 删除转账记录 -->
+    <delete id="deleteTransferRecord" parameterType="int">
+        DELETE FROM transfer_records WHERE id = #{id}
+    </delete>
+
+</mapper>

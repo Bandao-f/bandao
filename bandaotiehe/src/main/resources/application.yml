@@ -6,9 +6,11 @@ spring:
     name: register-center
 
   datasource:
-    url: jdbc:mysql://localhost:3306/mydatabase
-    username: your-username
-    password: your-password
+    url: jdbc:mysql://101.34.66.53:3306/bandaotiehe
+    username: bandaotiehe
+    password: fC6Zw5zJMEP4Tst3
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #    type: com.alibaba.druid.pool.DruidDataSource
 
   logging:
     level:
